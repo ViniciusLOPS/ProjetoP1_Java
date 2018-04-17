@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 public class Mundo {
     private int mapa[][] = ///< Mundo de grades 60 x 30, 0 = vazio, 1 = bordas, 2 = fabricas
             {{1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
