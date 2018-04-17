@@ -1,11 +1,11 @@
 import java.util.Random;
 
 public class Veiculo {
-    protected int x;
-    protected int y;
-    protected String fabrica;
-    protected int speed;
-    protected int cor;
+    protected int x;  ///< valores aleatorios de 0 a 59
+    protected int y;  ///< valores aleatorios de 0 a 29
+    protected String fabrica; ///< true ou false para saber se cria ou não um veiculo novo
+    protected int speed;  ///< velocidade fixa do veiculo
+    protected int cor;  ///< cor fixa de um veiculo
 
     public Veiculo(){}
     public Random gen = new Random();
