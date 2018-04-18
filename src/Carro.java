@@ -1,5 +1,3 @@
-import java.util.Random;
-
 public class Carro extends Veiculo {
     private int passageiros; ///< 1 a 4 passageiros
 

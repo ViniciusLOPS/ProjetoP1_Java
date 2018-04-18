@@ -1,5 +1,3 @@
-import java.util.Random;
-
 public class Caminhao extends Veiculo {
     private int carga; ///< 1 a 14 toneladas de carga
     public Caminhao(){

@@ -1,8 +1,8 @@
 import java.util.Random;
 
 public class Veiculo {
-    protected int x;  ///< valores aleatorios de 0 a 59
-    protected int y;  ///< valores aleatorios de 0 a 29
+    protected int x;  ///< valores aleatorios de 0 a 39
+    protected int y;  ///< valores aleatorios de 0 a 39
     protected boolean fabrica; ///< true ou false para saber se cria ou não um veiculo novo
     protected int speed;  ///< velocidade fixa do veiculo
     protected int cor;  ///< cor fixa de um veiculo
@@ -10,8 +10,8 @@ public class Veiculo {
     public Veiculo(){}
     public Random gen = new Random();
     public Veiculo(int speed, int cor){
-        setX(gen.nextInt(60));
-        setY(gen.nextInt(30));
+        setX(gen.nextInt(40));
+        setY(gen.nextInt(40));
         setFabrica(false);
         setSpeed(speed);
         setCor(cor);
@@ -45,5 +45,34 @@ public class Veiculo {
     }
     public int getCor() {
         return cor;
+    }
+    public void move(){
+        int m = gen.nextInt(4) + 1;
+        if (m == 1){
+            y -= speed;
+        }
+        if (m == 2){
+            y += speed;
+        }
+        if (m == 3){
+            x -= speed;
+        }
+        if (m == 4){
+            x += speed;
+        }
+
+        /// confirma se x e y estão de acordo com o tamanho do mundo
+        if (x < 0) {
+            x += 40;
+        }
+        else if (x > 39) {
+            x -= 40;
+        }
+        else if (y < 0) {
+            y += 40;
+        }
+        else if (y > 39) {
+            y -= 40;
+        }
     }
 }
