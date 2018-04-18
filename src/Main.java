@@ -15,8 +15,8 @@ public class Main {
             motos.add(new Moto());
         }
         m.printMundo();
-        m.attMapa();
-        m.printMundo();
+        m.attMundo(caminhoes, carros, motos);
+
         System.out.println( " " + v.getX() + " " + v.getY() + " " +  v.getFabrica() + " " +  v.getCor() + " " +  v.getSpeed());
         System.out.println( " " + caminhoes.get(0).getX() + " " + caminhoes.get(0).getY() + " " +  caminhoes.get(0).getFabrica() +
                 " " +  caminhoes.get(0).getCor() + " " +  caminhoes.get(0).getSpeed() + " " + caminhoes.get(0).getCarga());

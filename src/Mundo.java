@@ -40,9 +40,120 @@ public class Mundo {
         size_y = 30;
         attmapa = mapa;
     }
+
     public void attMapa(){
         attmapa= mapa;
     }
+
+    public void attMundo(ArrayList<Caminhao> caminhoes, ArrayList<Carro> carros, ArrayList<Moto> motos) {
+        attMapa();
+        int x, y;
+        for (int i = 0; i < motos.size(); i++) {
+            x = motos.get(i).getX();
+            y = motos.get(i).getY();
+            if (attmapa[y][x] == 0 || attmapa[y][x] == 1) {
+                motos.get(i).setFabrica(false);
+                attmapa[y][x] = motos.get(i).getCor();
+            } else if (attmapa[y][x] == 2) {
+                if (motos.get(i).getFabrica() == false){
+                    motos.get(i).setFabrica(true);
+                    motos.add(new Moto());
+                }
+                attmapa[y][x] = motos.get(i).getCor();
+            } else if (attmapa[y][x] == 3) {
+                for (int j = 0; j < i; j++) {
+                    if (x == motos.get(j).getX() && y == motos.get(j).getY()){
+                        motos.remove(j);
+                        break;
+                    }
+                }
+                i--;
+                motos.remove(i);
+                i--;
+                attmapa[y][x] = mapa[y][x];
+            }
+        }
+        for (int i = 0; i < carros.size(); i++) {
+            x = carros.get(i).getX();
+            y = carros.get(i).getY();
+            if (attmapa[y][x] == 0 || attmapa[y][x] == 1) {
+                carros.get(i).setFabrica(false);
+                attmapa[y][x] = carros.get(i).getCor();
+            } else if (attmapa[y][x] == 2) {
+                if (carros.get(i).getFabrica() == false){
+                    carros.get(i).setFabrica(true);
+                    carros.add(new Carro());
+                }
+                attmapa[y][x] = carros.get(i).getCor();
+            } else if (attmapa[y][x] == 3) {
+                for (int j = 0; j < motos.size(); j++) {
+                    if (x == motos.get(j).getX() && y == motos.get(j).getY()){
+                        motos.remove(j);
+                        break;
+                    }
+                }
+                attmapa[y][x] = carros.get(i).getCor();
+            } else if (attmapa[y][x] == 4) {
+                for (int j = 0; j < i; j++) {
+                    if (x == carros.get(j).getX() && y == carros.get(j).getY()){
+                        carros.remove(j);
+                        break;
+                    }
+                }
+                i--;
+                carros.remove(i);
+                i--;
+                attmapa[y][x] = mapa[y][x];
+            }
+
+        }
+        for (int i = 0; i < caminhoes.size(); i++) {
+            x = caminhoes.get(i).getX();
+            y = caminhoes.get(i).getY();
+            if (attmapa[y][x] == 0 || attmapa[y][x] == 1) {
+                caminhoes.get(i).setFabrica(false);
+                attmapa[y][x] = caminhoes.get(i).getCor();
+            } else if (attmapa[y][x] == 2) {
+                if (caminhoes.get(i).getFabrica() == false){
+                    caminhoes.get(i).setFabrica(true);
+                    caminhoes.add(new Caminhao());
+                }
+                attmapa[y][x] = caminhoes.get(i).getCor();
+            } else if (attmapa[y][x] == 3) {
+                for (int j = 0; j < motos.size(); j++) {
+                    if (x == motos.get(j).getX() && y == motos.get(j).getY()){
+                        motos.remove(j);
+                        break;
+                    }
+                }
+                attmapa[y][x] = caminhoes.get(i).getCor();
+            } else if (attmapa[y][x] == 4) {
+                for (int j = 0; j < carros.size(); j++) {
+                    if (x == carros.get(j).getX() && y == carros.get(j).getY()){
+                        carros.remove(j);
+                        break;
+                    }
+                }
+                attmapa[y][x] = caminhoes.get(i).getCor();
+            } else if (attmapa[y][x] == 5) {
+                for (int j = 0; j < i; j++) {
+                    if (x == caminhoes.get(j).getX() && y == caminhoes.get(j).getY()){
+                        caminhoes.remove(j);
+                        break;
+                    }
+                }
+                i--;
+                caminhoes.remove(i);
+                i--;
+                attmapa[y][x] = mapa[y][x];
+            }
+
+        }
+        System.out.println("\033[2;31m Caminhoes: \033[0m" + caminhoes.size() + "\033[2;34m Carros: \033[0m" + carros.size()
+                + "\033[2;32m Motos: \033[0m" + motos.size());
+        printMundo();
+    }
+
     public void printMundo() {
         for (int i = 0; i < size_y; i++){
             for (int j = 0; j < size_x; j++){
