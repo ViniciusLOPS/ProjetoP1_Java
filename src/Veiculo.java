@@ -51,16 +51,15 @@ public class Veiculo {
         if (m == 1){
             y -= speed;
         }
-        if (m == 2){
+        else if (m == 2){
             y += speed;
         }
-        if (m == 3){
+        else if (m == 3){
             x -= speed;
         }
-        if (m == 4){
+        else if (m == 4){
             x += speed;
         }
-
         /// confirma se x e y estão de acordo com o tamanho do mundo
         if (x < 0) {
             x += 40;

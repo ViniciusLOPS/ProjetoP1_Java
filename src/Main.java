@@ -31,6 +31,11 @@ public class Main {
             if(contadorPrints == 10000){
                 System.out.println("10000 prints atingidos(seria um exagero continuar)");
             }
+            try {
+                Thread.sleep(100); ///< Pausa o programa durante 333 milisegundos
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
     }
 }
