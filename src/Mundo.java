@@ -2,6 +2,8 @@ import java.util.ArrayList;
 
 public class Mundo {
     private int mapa[][] = ///< Mundo de grades 40 x 40, 0 = vazio, 1 = bordas, 2 = fabricas
+                           ///< serve para quando ouverem batidas substituir o espaço da batida pelo mapa original
+                           ///<
             {
                     {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
                     {1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
@@ -44,9 +46,11 @@ public class Mundo {
                     {1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
                     {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1}};
     private int attmapa[][];  ///< mundo de grades para atualizações de posição
+    private int contVitimas;
+    private int contCarga;
 
     public Mundo() {
-        attmapa = new int[][]
+        attmapa = new int[][] ///< Mundo de grades 40 x 40, 0 = vazio, 1 = bordas, 2 = fabricas
                 {
                         {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
                         {1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
@@ -91,7 +95,7 @@ public class Mundo {
     }
 
     public void attMapa(){
-        attmapa = new int[][]
+        attmapa = new int[][]  ///< Mundo de grades 40 x 40, 0 = vazio, 1 = bordas, 2 = fabricas
                 {
                         {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
                         {1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
@@ -144,7 +148,7 @@ public class Mundo {
                 motos.get(i).setFabrica(false);
                 attmapa[x][y] = motos.get(i).getCor();
             } else if (attmapa[x][y] == 2) {
-                if (motos.get(i).getFabrica() == false){
+                if (!motos.get(i).getFabrica()){
                     motos.get(i).setFabrica(true);
                     motos.add(new Moto());
                 }
@@ -152,11 +156,13 @@ public class Mundo {
             } else if (attmapa[x][y] == 3) {
                 for (int j = 0; j < i; j++) {
                     if (x == motos.get(j).getX() && y == motos.get(j).getY()){
+                        contVitimas += motos.get(j).getPassageiros();
                         motos.remove(j);
                         break;
                     }
                 }
                 i--;
+                contVitimas += motos.get(i).getPassageiros();
                 motos.remove(i);
                 i--;
 
@@ -170,7 +176,7 @@ public class Mundo {
                 carros.get(i).setFabrica(false);
                 attmapa[x][y] = carros.get(i).getCor();
             } else if (attmapa[x][y] == 2) {
-                if (carros.get(i).getFabrica() == false){
+                if (!carros.get(i).getFabrica()){
                     carros.get(i).setFabrica(true);
                     carros.add(new Carro());
                 }
@@ -178,6 +184,7 @@ public class Mundo {
             } else if (attmapa[x][y] == 3) {
                 for (int j = 0; j < motos.size(); j++) {
                     if (x == motos.get(j).getX() && y == motos.get(j).getY()){
+                        contVitimas += motos.get(j).getPassageiros();
                         motos.remove(j);
                         break;
                     }
@@ -186,11 +193,13 @@ public class Mundo {
             } else if (attmapa[x][y] == 4) {
                 for (int j = 0; j < i; j++) {
                     if (x == carros.get(j).getX() && y == carros.get(j).getY()){
+                        contVitimas += carros.get(j).getPassageiros();
                         carros.remove(j);
                         break;
                     }
                 }
                 i--;
+                contVitimas += carros.get(i).getPassageiros();
                 carros.remove(i);
                 i--;
                 attmapa[x][y] = mapa[y][x];
@@ -204,7 +213,7 @@ public class Mundo {
                 caminhoes.get(i).setFabrica(false);
                 attmapa[x][y] = caminhoes.get(i).getCor();
             } else if (attmapa[x][y] == 2) {
-                if (caminhoes.get(i).getFabrica() == false){
+                if (!caminhoes.get(i).getFabrica()){
                     caminhoes.get(i).setFabrica(true);
                     caminhoes.add(new Caminhao());
                 }
@@ -212,6 +221,7 @@ public class Mundo {
             } else if (attmapa[x][y] == 3) {
                 for (int j = 0; j < motos.size(); j++) {
                     if (x == motos.get(j).getX() && y == motos.get(j).getY()){
+                        contVitimas += motos.get(j).getPassageiros();
                         motos.remove(j);
                         break;
                     }
@@ -220,6 +230,7 @@ public class Mundo {
             } else if (attmapa[x][y] == 4) {
                 for (int j = 0; j < carros.size(); j++) {
                     if (x == carros.get(j).getX() && y == carros.get(j).getY()){
+                        contVitimas += carros.get(j).getPassageiros();
                         carros.remove(j);
                         break;
                     }
@@ -228,11 +239,15 @@ public class Mundo {
             } else if (attmapa[x][y] == 5) {
                 for (int j = 0; j < i; j++) {
                     if (x == caminhoes.get(j).getX() && y == caminhoes.get(j).getY()){
+                        contVitimas += 1; /// estou considerando caminhões cargueiros onde normalmente so tem o piloto.
+                        contCarga += caminhoes.get(j).getCarga();
                         caminhoes.remove(j);
                         break;
                     }
                 }
                 i--;
+                contCarga += caminhoes.get(i).getCarga();
+                contVitimas += 1; /// estou considerando caminhões cargueiros onde normalmente so tem o piloto.
                 caminhoes.remove(i);
                 i--;
                 attmapa[x][y] = mapa[x][y];
@@ -241,6 +256,8 @@ public class Mundo {
         System.out.println("\033[2;31m Caminhoes: \033[0m" + caminhoes.size() + "\033[2;34m Carros: \033[0m" + carros.size()
                 + "\033[2;32m Motos: \033[0m" + motos.size());
         printMundo();
+        System.out.println("\033[2;31m  Vitimas: \033[0m" + contVitimas + "\033[2;32m  Carga Perdida: \033[0m" + contCarga +
+                "\033[2;32m Toneladas \033[0m");
     }
 
     public void printMundo() {
