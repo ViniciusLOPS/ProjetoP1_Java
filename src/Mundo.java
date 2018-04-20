@@ -1,9 +1,11 @@
 import java.util.ArrayList;
-
+///
+/// Classe para criação de um Mundo de grades. Capaz de montar um mundo de grades de forma colorida e decidir
+/// como o Mundo vai reagir em relação as classes Veiculo.
 public class Mundo {
-    private int mapa[][] = ///< Mundo de grades 40 x 40, 0 = vazio, 1 = bordas, 2 = fabricas
-                           ///< serve para quando ouverem batidas substituir o espaço da batida pelo mapa original
-                           ///<
+    private int mapa[][] =///< Mundo de grades 40 x 40, 0 = vazio, 1 = bordas, 2 = fabricas.
+                          ///< Serve para quando ouverem batidas substituir o espaço da batida pelo mapa original.
+                          ///<
             {
                     {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
                     {1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
@@ -45,12 +47,12 @@ public class Mundo {
                     {1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
                     {1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
                     {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1}};
-    private int attmapa[][];  ///< mundo de grades para atualizações de posição
-    private int contVitimas;
-    private int contCarga;
+    private int attmapa[][];  ///< Mundo de grades para atualizações de posição.
+    private int contVitimas; ///< Contador de vitimas em batidas.
+    private int contCarga; ///< Contador de carga perdida em batidas.
 
     public Mundo() {
-        attmapa = new int[][] ///< Mundo de grades 40 x 40, 0 = vazio, 1 = bordas, 2 = fabricas
+        attmapa = new int[][] ///< Mundo de grades 40 x 40, 0 = vazio, 1 = bordas, 2 = fabricas.
                 {
                         {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
                         {1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
@@ -95,7 +97,7 @@ public class Mundo {
     }
 
     public void attMapa(){
-        attmapa = new int[][]  ///< Mundo de grades 40 x 40, 0 = vazio, 1 = bordas, 2 = fabricas
+        attmapa = new int[][]  ///< Mundo de grades 40 x 40, 0 = vazio, 1 = bordas, 2 = fabricas.
                 {
                         {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
                         {1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
@@ -239,50 +241,57 @@ public class Mundo {
             } else if (attmapa[x][y] == 5) {
                 for (int j = 0; j < i; j++) {
                     if (x == caminhoes.get(j).getX() && y == caminhoes.get(j).getY()){
-                        contVitimas += 1; /// estou considerando caminhões cargueiros onde normalmente so tem o piloto.
-                        contCarga += caminhoes.get(j).getCarga();
+                        /// Adiciona 1 ao contador de Vitimas. Estou considerando caminhões cargueiros onde normalmente
+                        /// so tem o piloto.
+                        contVitimas += 1;
+                        contCarga += caminhoes.get(j).getCarga(); /// Contador de toneladas perdidas pelas batidas.
                         caminhoes.remove(j);
                         break;
                     }
                 }
                 i--;
-                contCarga += caminhoes.get(i).getCarga();
-                contVitimas += 1; /// estou considerando caminhões cargueiros onde normalmente so tem o piloto.
+                contCarga += caminhoes.get(i).getCarga(); /// Contador de toneladas perdidas pelas batidas.
+                /// Adiciona 1 ao contador de Vitimas. Estou considerando caminhões cargueiros onde normalmente
+                /// so tem o piloto.
+                contVitimas += 1;
                 caminhoes.remove(i);
                 i--;
                 attmapa[x][y] = mapa[x][y];
             }
         }
-        System.out.println("\033[2;31m Caminhoes: \033[0m" + caminhoes.size() + "\033[2;34m Carros: \033[0m" + carros.size()
-                + "\033[2;32m Motos: \033[0m" + motos.size());
-        printMundo();
-        System.out.println("\033[2;31m  Vitimas: \033[0m" + contVitimas + "\033[2;32m  Carga Perdida: \033[0m" + contCarga +
-                "\033[2;32m Toneladas \033[0m");
+        System.out.println("\033[2;31m  Caminhoes: \033[0m" + caminhoes.size() + "\033[2;34m Carros: \033[0m" + carros.size()
+                + "\033[2;32m Motos: \033[0m" + motos.size());  /// Printa o numero de veiculos existentes.
+        printMundo(); /// Chama o metodo printMundo.
+        System.out.println("\033[2;31mVitimas: \033[0m" + contVitimas + "\033[2;32m Carga Perdida:\033[0m" + contCarga +
+                "\033[2;32mToneladas \033[0m"); /// Printa uma linha que contem numero de vitimas e toneladas de carga.
     }
-
+    ///
+    /// Metodo para printar o mundo com as cores escolhidas construindo assim
+    /// um mundo de grades.
+    ///
     public void printMundo() {
-        for (int i = 0; i < 40; i++){
-            for (int j = 0; j < 40; j++){
-                if (attmapa[i][j] == 0){
-                    System.out.print("\033[7;37m \033[0m"); /// 0 = lightgray
+        for (int i = 0; i < 40; i++){   /// For para ver todas as colunas.
+            for (int j = 0; j < 40; j++){  /// For para ver todas as linhas.
+                if (attmapa[i][j] == 0){   /// 0 é vazio.
+                    System.out.print("\033[7;37m \033[0m"); /// 0 = lightgray.
                 }
-                else if (attmapa[i][j] == 1){
-                    System.out.print("\033[7;30m \033[0m"); /// 1 = black
+                else if (attmapa[i][j] == 1){   /// 1 é borda.
+                    System.out.print("\033[7;30m \033[0m"); /// 1 = black.
                 }
-                else if (attmapa[i][j] == 2){
-                    System.out.print("\033[7;35m \033[0m"); /// 2 = magenta
+                else if (attmapa[i][j] == 2){   /// 2 é fabrica.
+                    System.out.print("\033[7;35m \033[0m"); /// 2 = magenta.
                 }
-                else if (attmapa[i][j] == 3){
-                    System.out.print("\033[7;32m \033[0m"); /// 3 = green
+                else if (attmapa[i][j] == 3){   /// 3 representa as motos.
+                    System.out.print("\033[7;32m \033[0m"); /// 3 = green.
                 }
-                else if (attmapa[i][j] == 4){
-                    System.out.print("\033[7;34m \033[0m"); /// 4 = blue
+                else if (attmapa[i][j] == 4){   /// 4 representa os carros.
+                    System.out.print("\033[7;34m \033[0m"); /// 4 = blue.
                 }
-                else if (attmapa[i][j] == 5){
-                    System.out.print("\033[7;31m \033[0m"); /// 5 = red
+                else if (attmapa[i][j] == 5){  /// 5 representa os caminhões.
+                    System.out.print("\033[7;31m \033[0m"); /// 5 = red.
                 }
             }
-            System.out.println();
+            System.out.println(); /// Print para pular linha.
         }
     }
 
