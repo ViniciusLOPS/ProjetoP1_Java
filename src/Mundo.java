@@ -6,7 +6,6 @@ import java.util.ArrayList;
 public class Mundo {
     private int mapa[][] =///< Mundo de grades 40 x 40, 0 = vazio, 1 = bordas, 2 = fabricas.
                           ///< Serve para quando ouverem batidas substituir o espaço da batida pelo mapa original.
-                          ///<
             {
                     {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
                     {1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
@@ -155,11 +154,13 @@ public class Mundo {
     /// dependendo de quem é 'maior', vai sair ganhando ou se ambos forem iguais ambos 'morrem'.
     ///
     public void attMundo(ArrayList<Caminhao> caminhoes, ArrayList<Carro> carros, ArrayList<Moto> motos) {
-        int x, y; ///< Declarando x e y, que seram usados para saber a posição exata de cada Veiculo criado.
+        int x, y; /// Declarando x e y, que seram usados para saber a posição exata de cada Veiculo criado.
+
         /// percorre todo o Arraylist de Moto.
         for (int i = 0; i < motos.size(); i++) {
             x = motos.get(i).getX(); /// Da para x o valor da posição x do Moto.
             y = motos.get(i).getY(); /// Da para y o valor da posição y do Moto.
+
             /// Se a Moto se movimentou para uma borda ou uma área vazia, entra neste if.
             if (attmapa[x][y] == 0 || attmapa[y][x] == 1) {
                 motos.get(i).setFabrica(false); /// Seta fabrica como false. Afinal a Moto está fora da fabrica.
@@ -206,6 +207,7 @@ public class Mundo {
         for (int i = 0; i < carros.size(); i++) {
             x = carros.get(i).getX(); /// Da para x o valor da posição x do Carro.
             y = carros.get(i).getY(); /// Da para y o valor da posição y do Carro.
+
             /// Se o Carro se movimentou para uma borda ou uma área vazia, entra neste if.
             if (attmapa[x][y] == 0 || attmapa[x][y] == 1) {
                 carros.get(i).setFabrica(false); /// Seta fabrica como false. Afinal o Carro está fora da fabrica.
@@ -266,6 +268,7 @@ public class Mundo {
         for (int i = 0; i < caminhoes.size(); i++) {
             x = caminhoes.get(i).getX(); /// Da para x o valor da posição x do Caminhao.
             y = caminhoes.get(i).getY(); /// Da para y o valor da posição y do Caminhao.
+
             /// Se o Caminhao se movimentou para uma borda ou uma área vazia, entra neste if.
             if (attmapa[x][y] == 0 || attmapa[x][y] == 1) {
                 caminhoes.get(i).setFabrica(false); /// Seta fabrica como false. Afinal o Caminhao está fora da fabrica.

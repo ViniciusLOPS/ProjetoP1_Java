@@ -1,0 +1,961 @@
+\hypertarget{class_mundo}{}\section{Referência da Classe Mundo}
+\label{class_mundo}\index{Mundo@{Mundo}}
+\subsection*{Membros Públicos}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_mundo_ae3801a0a633ad3475456c67639561105}{Mundo}} ()
+\item 
+void \mbox{\hyperlink{class_mundo_af5231bba26317e2ff2eb04e9bf0ac495}{att\+Mapa}} ()
+\item 
+void \mbox{\hyperlink{class_mundo_a6992f445c8947937e73492a0ac6895fa}{att\+Mundo}} (Array\+List$<$ \mbox{\hyperlink{class_caminhao}{Caminhao}} $>$ caminhoes, Array\+List$<$ \mbox{\hyperlink{class_carro}{Carro}} $>$ carros, Array\+List$<$ \mbox{\hyperlink{class_moto}{Moto}} $>$ motos)
+\item 
+void \mbox{\hyperlink{class_mundo_abe2d4fb96005c19b423cc6163bf986f5}{print\+Mundo}} ()
+\end{DoxyCompactItemize}
+\subsection*{Atributos Privados}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{class_mundo_a8332b2d52b9f317338a4d6cbe10bbcbb}{mapa}} \mbox{[}$\,$\mbox{]}\mbox{[}$\,$\mbox{]}
+\item 
+\mbox{\Hypertarget{class_mundo_afccad9fd3eda103dc801ffaf2c391e1a}\label{class_mundo_afccad9fd3eda103dc801ffaf2c391e1a}} 
+int \mbox{\hyperlink{class_mundo_afccad9fd3eda103dc801ffaf2c391e1a}{attmapa}} \mbox{[}$\,$\mbox{]}\mbox{[}$\,$\mbox{]}
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{class_mundo}{Mundo}} de grades para atualizações de posição. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_mundo_afa552f3d464f7372e35f182ad60f0e2c}\label{class_mundo_afa552f3d464f7372e35f182ad60f0e2c}} 
+int \mbox{\hyperlink{class_mundo_afa552f3d464f7372e35f182ad60f0e2c}{cont\+Vitimas}}
+\begin{DoxyCompactList}\small\item\em Contador de vitimas em batidas. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_mundo_a6289b5c83662e0f64c6d673983581dc3}\label{class_mundo_a6289b5c83662e0f64c6d673983581dc3}} 
+int \mbox{\hyperlink{class_mundo_a6289b5c83662e0f64c6d673983581dc3}{cont\+Carga}}
+\begin{DoxyCompactList}\small\item\em Contador de carga perdida em batidas. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Descrição detalhada}
+Classe para criação de um \mbox{\hyperlink{class_mundo}{Mundo}} de grades. Capaz de montar um mundo de grades de forma colorida e decidir como o \mbox{\hyperlink{class_mundo}{Mundo}} vai reagir em relação as classes \mbox{\hyperlink{class_veiculo}{Veiculo}}. 
+
+\subsection{Construtores e Destrutores}
+\mbox{\Hypertarget{class_mundo_ae3801a0a633ad3475456c67639561105}\label{class_mundo_ae3801a0a633ad3475456c67639561105}} 
+\index{Mundo@{Mundo}!Mundo@{Mundo}}
+\index{Mundo@{Mundo}!Mundo@{Mundo}}
+\subsubsection{\texorpdfstring{Mundo()}{Mundo()}}
+{\footnotesize\ttfamily Mundo.\+Mundo (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Construtor padrão de \mbox{\hyperlink{class_mundo}{Mundo}}. Cria um mundo para atualizações, com sua forma inicial. $<$ \mbox{\hyperlink{class_mundo}{Mundo}} de grades 40 x 40, 0 = vazio, 1 = bordas, 2 = fabricas. Serve para criar um mundo como o mapa original. 
+
+\subsection{Funções membros}
+\mbox{\Hypertarget{class_mundo_af5231bba26317e2ff2eb04e9bf0ac495}\label{class_mundo_af5231bba26317e2ff2eb04e9bf0ac495}} 
+\index{Mundo@{Mundo}!att\+Mapa@{att\+Mapa}}
+\index{att\+Mapa@{att\+Mapa}!Mundo@{Mundo}}
+\subsubsection{\texorpdfstring{att\+Mapa()}{attMapa()}}
+{\footnotesize\ttfamily void Mundo.\+att\+Mapa (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Método para atualização do mapa. Atualiza o mapa para sua versão original, para realocação e interação de cada \mbox{\hyperlink{class_veiculo}{Veiculo}}. $<$ \mbox{\hyperlink{class_mundo}{Mundo}} de grades 40 x 40, 0 = vazio, 1 = bordas, 2 = fabricas. Serve para atualizar posições. \mbox{\Hypertarget{class_mundo_a6992f445c8947937e73492a0ac6895fa}\label{class_mundo_a6992f445c8947937e73492a0ac6895fa}} 
+\index{Mundo@{Mundo}!att\+Mundo@{att\+Mundo}}
+\index{att\+Mundo@{att\+Mundo}!Mundo@{Mundo}}
+\subsubsection{\texorpdfstring{att\+Mundo()}{attMundo()}}
+{\footnotesize\ttfamily void Mundo.\+att\+Mundo (\begin{DoxyParamCaption}\item[{Array\+List$<$ \mbox{\hyperlink{class_caminhao}{Caminhao}} $>$}]{caminhoes,  }\item[{Array\+List$<$ \mbox{\hyperlink{class_carro}{Carro}} $>$}]{carros,  }\item[{Array\+List$<$ \mbox{\hyperlink{class_moto}{Moto}} $>$}]{motos }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Método para atualização do \mbox{\hyperlink{class_mundo}{Mundo}}. Percorre cada tipo de \mbox{\hyperlink{class_veiculo}{Veiculo}} para confirmar se\+: ele está em um espaço vazio, em uma borda, em uma fabrica ou em cima de outro \mbox{\hyperlink{class_veiculo}{Veiculo}}; onde a fabrica duplica veiculos, os veiculos que batem dependendo de quem é \textquotesingle{}maior\textquotesingle{}, vai sair ganhando ou se ambos forem iguais ambos \textquotesingle{}morrem\textquotesingle{}. Declarando x e y, que seram usados para saber a posição exata de cada \mbox{\hyperlink{class_veiculo}{Veiculo}} criado.
+
+percorre todo o Arraylist de \mbox{\hyperlink{class_moto}{Moto}}.
+
+Da para x o valor da posição x do \mbox{\hyperlink{class_moto}{Moto}}.
+
+Da para y o valor da posição y do \mbox{\hyperlink{class_moto}{Moto}}.
+
+Se a \mbox{\hyperlink{class_moto}{Moto}} se movimentou para uma borda ou uma área vazia, entra neste if.
+
+Seta fabrica como false. Afinal a \mbox{\hyperlink{class_moto}{Moto}} está fora da fabrica.
+
+Seta a cor do mapa para o valor que está em \mbox{\hyperlink{class_moto}{Moto}}.
+
+Cria nova \mbox{\hyperlink{class_moto}{Moto}}. Se uma \mbox{\hyperlink{class_moto}{Moto}} se depara com uma fabrica ela se duplica.
+
+Só entra no if se a fabrica ainda não foi visitada no movimento anterior.
+
+Seta a fabrica como true. Para que uma \mbox{\hyperlink{class_moto}{Moto}} não repita sua duplicação sem antes sair e voltar a fabrica. ~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+ Adiciona uma nova \mbox{\hyperlink{class_moto}{Moto}} se o \mbox{\hyperlink{class_veiculo}{Veiculo}} visitou a fabrica.
+
+Seta a cor do mapa para o valor que está em \mbox{\hyperlink{class_moto}{Moto}}.
+
+Exclui as motos batidas. Se uma \mbox{\hyperlink{class_moto}{Moto}} se depara com outra \mbox{\hyperlink{class_moto}{Moto}}, então será nescessario excluir ambas. ~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+ Percorre todas as motos que ja existem para descobrir quem bateu.
+
+Se for a \mbox{\hyperlink{class_moto}{Moto}} que sofreu a batida entra no if.
+
+Adiciona os passageiros da \mbox{\hyperlink{class_moto}{Moto}} ao contador de vitimas.
+
+Remove o \mbox{\hyperlink{class_moto}{Moto}} que sofreu a batida.
+
+Para sair do for no momento em que achar a \mbox{\hyperlink{class_moto}{Moto}} que sofreu o acidente.
+
+Voltando no array pois uma \mbox{\hyperlink{class_moto}{Moto}} que bateu foi retirado de la, assim precisando voltar atraz para retirar o proximo que sofreu a batida. ~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+ Adiciona os passageiros da \mbox{\hyperlink{class_moto}{Moto}} ao contador de vitimas.
+
+Remove o \mbox{\hyperlink{class_moto}{Moto}} que sofreu a batida. ~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+ voltando no array pois uma \mbox{\hyperlink{class_moto}{Moto}} que bateu e foi retirado de la, assim precisando voltar atraz para continuar o for vizualizando todos as motos que faltaram. ~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+ o ponto da batida será substituido pelo valor no mapa original.
+
+percorre todo o Arraylist de \mbox{\hyperlink{class_carro}{Carro}}.
+
+Da para x o valor da posição x do \mbox{\hyperlink{class_carro}{Carro}}.
+
+Da para y o valor da posição y do \mbox{\hyperlink{class_carro}{Carro}}.
+
+Se o \mbox{\hyperlink{class_carro}{Carro}} se movimentou para uma borda ou uma área vazia, entra neste if.
+
+Seta fabrica como false. Afinal o \mbox{\hyperlink{class_carro}{Carro}} está fora da fabrica.
+
+Seta a cor do mapa para o valor que está em \mbox{\hyperlink{class_carro}{Carro}}.
+
+Cria novo \mbox{\hyperlink{class_carro}{Carro}}. Se um \mbox{\hyperlink{class_carro}{Carro}} se depara com uma fabrica ele se duplica.
+
+Só entra no if se a fabrica ainda não foi visitada no movimento anterior.
+
+Seta a fabrica como true. Para que um carro não repita sua duplicação sem antes sair e voltar a fabrica. ~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+ Adiciona um novo \mbox{\hyperlink{class_carro}{Carro}} se o \mbox{\hyperlink{class_veiculo}{Veiculo}} visitou a fabrica.
+
+Seta a cor do mapa para o valor que está em \mbox{\hyperlink{class_carro}{Carro}}.
+
+Exclui as motos batidas. Se um \mbox{\hyperlink{class_carro}{Carro}} se depara com uma \mbox{\hyperlink{class_moto}{Moto}}, a \mbox{\hyperlink{class_moto}{Moto}} \char`\"{}morre\char`\"{}.
+
+Percorre todas as motos para descobrir quem bateu.
+
+Se for a \mbox{\hyperlink{class_moto}{Moto}} que sofreu a batida entra no if.
+
+Adiciona os passageiros da \mbox{\hyperlink{class_moto}{Moto}} ao contador de vitimas.
+
+Remove o \mbox{\hyperlink{class_moto}{Moto}} que sofreu a batida.
+
+Para sair do for no momento em que achar o \mbox{\hyperlink{class_moto}{Moto}} que sofreu o acidente.
+
+Seta a cor do mapa para o valor que está em \mbox{\hyperlink{class_carro}{Carro}}.
+
+Exclui os carros batidos. Se um \mbox{\hyperlink{class_carro}{Carro}} se depara com outro \mbox{\hyperlink{class_carro}{Carro}}, então será nescessario excluir ambos. ~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+ Percorre todos os carros que ja existem para descobrir quem bateu.
+
+Se for o \mbox{\hyperlink{class_carro}{Carro}} que sofreu a batida entra no if.
+
+Adiciona os passageiros do \mbox{\hyperlink{class_carro}{Carro}} ao contador de vitimas.
+
+Remove o \mbox{\hyperlink{class_carro}{Carro}} que sofreu a batida.
+
+Para sair do for no momento em que achar o \mbox{\hyperlink{class_carro}{Carro}} que sofreu o acidente.
+
+Voltando no array pois um \mbox{\hyperlink{class_carro}{Carro}} que bateu foi retirado de la, assim precisando voltar atraz para retirar o proximo que sofreu a batida. ~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+ Adiciona os passageiros do \mbox{\hyperlink{class_carro}{Carro}} ao contador de vitimas.
+
+Remove o \mbox{\hyperlink{class_carro}{Carro}} que sofreu a batida. ~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+ voltando no array pois um \mbox{\hyperlink{class_carro}{Carro}} que bateu e foi retirado de la, assim precisando voltar atraz para continuar o for vizualizando todos os carros que faltaram. ~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+ o ponto da batida será substituido pelo valor no mapa original.
+
+percorre todo o Arraylist de \mbox{\hyperlink{class_caminhao}{Caminhao}}.
+
+Da para x o valor da posição x do \mbox{\hyperlink{class_caminhao}{Caminhao}}.
+
+Da para y o valor da posição y do \mbox{\hyperlink{class_caminhao}{Caminhao}}.
+
+Se o \mbox{\hyperlink{class_caminhao}{Caminhao}} se movimentou para uma borda ou uma área vazia, entra neste if.
+
+Seta fabrica como false. Afinal o \mbox{\hyperlink{class_caminhao}{Caminhao}} está fora da fabrica.
+
+Seta a cor do mapa para o valor que está em \mbox{\hyperlink{class_caminhao}{Caminhao}}.
+
+Cria novo \mbox{\hyperlink{class_caminhao}{Caminhao}}. Se um \mbox{\hyperlink{class_caminhao}{Caminhao}} se depara com uma fabrica ele se duplica.
+
+Só entra no if se a fabrica ainda não foi visitada no movimento anterior.
+
+Seta a fabrica como true. Para que um caminhao não repita sua duplicação sem antes sair e voltar a fabrica. ~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+ Adiciona um novo \mbox{\hyperlink{class_caminhao}{Caminhao}} se o \mbox{\hyperlink{class_veiculo}{Veiculo}} visitou a fabrica.
+
+Seta a cor do mapa para o valor que está em \mbox{\hyperlink{class_caminhao}{Caminhao}}.
+
+Exclui as motos batidas. Se um \mbox{\hyperlink{class_caminhao}{Caminhao}} se depara com uma \mbox{\hyperlink{class_moto}{Moto}}, a \mbox{\hyperlink{class_moto}{Moto}} \char`\"{}morre\char`\"{}.
+
+Percorre todas as motos para descobrir quem bateu.
+
+Se for a \mbox{\hyperlink{class_moto}{Moto}} que sofreu a batida entra no if.
+
+Adiciona os passageiros da \mbox{\hyperlink{class_moto}{Moto}} ao contador de vitimas.
+
+Remove o \mbox{\hyperlink{class_moto}{Moto}} que sofreu a batida.
+
+Para sair do for no momento em que achar a moto que sofreu o acidente.
+
+Seta a cor do mapa para o valor que está em \mbox{\hyperlink{class_caminhao}{Caminhao}}.
+
+Exclui os carros batidos. Se um \mbox{\hyperlink{class_caminhao}{Caminhao}} se depara com um \mbox{\hyperlink{class_carro}{Carro}}, o \mbox{\hyperlink{class_carro}{Carro}} \char`\"{}morre\char`\"{}.
+
+Percorre todos os carros para descobrir quem bateu.
+
+Se for o \mbox{\hyperlink{class_carro}{Carro}} que sofreu a batida entra no if.
+
+Adiciona os passageiros do \mbox{\hyperlink{class_carro}{Carro}} ao contador de vitimas.
+
+Remove o \mbox{\hyperlink{class_carro}{Carro}} que sofreu a batida.
+
+Para sair do for no momento em que achar o carro que sofreu o acidente.
+
+Seta a cor do mapa para o valor que está em \mbox{\hyperlink{class_caminhao}{Caminhao}}.
+
+Exclui os caminhoes batidos. Se um \mbox{\hyperlink{class_caminhao}{Caminhao}} se depara com outro \mbox{\hyperlink{class_caminhao}{Caminhao}}, então será nescessario excluir ambos. ~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+ Percorre todos os caminhoes que ja existem para descobrir quem bateu.
+
+Se for o \mbox{\hyperlink{class_caminhao}{Caminhao}} que sofreu a batida entra no if.
+
+Adiciona 1 ao contador de Vitimas. Estou considerando caminhoes cargueiros onde normalmente so tem o piloto. ~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+ Contador de toneladas perdidas pelas batidas.
+
+Remove o \mbox{\hyperlink{class_caminhao}{Caminhao}} que sofreu a batida.
+
+Para sair do for no momento em que achar o \mbox{\hyperlink{class_caminhao}{Caminhao}} que sofreu o acidente.
+
+Voltando no array pois um \mbox{\hyperlink{class_caminhao}{Caminhao}} que bateu foi retirado de la, assim precisando voltar atraz para retirar o proximo que sofreu a batida. ~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+ Contador de toneladas perdidas pelas batidas. ~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+ Adiciona 1 ao contador de Vitimas. Estou considerando caminhoes cargueiros onde normalmente so tem o piloto. ~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+ Remove o \mbox{\hyperlink{class_caminhao}{Caminhao}} que sofreu a batida. ~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+ voltando no array pois um \mbox{\hyperlink{class_caminhao}{Caminhao}} que bateu e foi retirado de la, assim precisando voltar atraz para continuar o for vizualizando todos os caminhoes que faltaram. ~\newline
+~\newline
+~\newline
+~\newline
+ o ponto da batida será substituido pelo valor no mapa original.
+
+Printa o numero de veiculos existentes.
+
+Chama o metodo print\+Mundo.
+
+Printa uma linha que contem numero de vitimas e toneladas de carga. \mbox{\Hypertarget{class_mundo_abe2d4fb96005c19b423cc6163bf986f5}\label{class_mundo_abe2d4fb96005c19b423cc6163bf986f5}} 
+\index{Mundo@{Mundo}!print\+Mundo@{print\+Mundo}}
+\index{print\+Mundo@{print\+Mundo}!Mundo@{Mundo}}
+\subsubsection{\texorpdfstring{print\+Mundo()}{printMundo()}}
+{\footnotesize\ttfamily void Mundo.\+print\+Mundo (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Método para printar o mundo com as cores escolhidas, construindo assim um mundo de grades. For para ver todas as colunas.
+
+For para ver todas as linhas.
+
+0 é vazio.
+
+0 = black.
+
+1 é borda.
+
+1 = lightgray.
+
+2 é fabrica.
+
+2 = roxo.
+
+3 representa as motos.
+
+3 = Green.
+
+4 representa os carros.
+
+4 = blue.
+
+5 representa os caminhões.
+
+5 = red.
+
+Print para pular linha. 
+
+\subsection{Atributos}
+\mbox{\Hypertarget{class_mundo_a8332b2d52b9f317338a4d6cbe10bbcbb}\label{class_mundo_a8332b2d52b9f317338a4d6cbe10bbcbb}} 
+\index{Mundo@{Mundo}!mapa@{mapa}}
+\index{mapa@{mapa}!Mundo@{Mundo}}
+\subsubsection{\texorpdfstring{mapa}{mapa}}
+{\footnotesize\ttfamily int Mundo.\+mapa\mbox{[}$\,$\mbox{]}\mbox{[}$\,$\mbox{]}\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\hyperlink{class_mundo}{Mundo}} de grades 40 x 40, 0 = vazio, 1 = bordas, 2 = fabricas. Serve para quando ouverem batidas substituir o espaço da batida pelo mapa original. 
+
+A documentação para essa classe foi gerada a partir do seguinte arquivo\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+User/\+Documents/\+Git\+Hub/\+Projeto\+P1\+\_\+\+J\+A\+V\+A/src/Mundo.\+java\end{DoxyCompactItemize}

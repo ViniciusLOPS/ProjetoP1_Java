@@ -6,10 +6,10 @@ public class Main {
 
     public static void main(String[] args) {
 
-        Mundo m = new Mundo(); ///< Cria um Mundo.
-        ArrayList <Caminhao> caminhoes = new ArrayList<>(); ///< Cria uma lista de caminhões da classe Caminhao.
-        ArrayList <Carro> carros = new ArrayList<>(); ///< Cria uma lista de carros da classe Carro.
-        ArrayList <Moto> motos = new ArrayList<>(); ///< Cria uma lista de motos da classe Moto.
+        Mundo m = new Mundo(); /// Cria um Mundo.
+        ArrayList <Caminhao> caminhoes = new ArrayList<>(); /// Cria uma lista de caminhões da classe Caminhao.
+        ArrayList <Carro> carros = new ArrayList<>(); /// Cria uma lista de carros da classe Carro.
+        ArrayList <Moto> motos = new ArrayList<>(); /// Cria uma lista de motos da classe Moto.
 
         ///
         /// For que adiciona 10 novos veiculos de cada tipo para o teste do mundo de grades.
@@ -37,7 +37,8 @@ public class Main {
             for (Moto moto : motos) { /// For que percorre cada moto.
                 moto.move(); /// Move a moto.
             }
-            m.attMundo(caminhoes, carros, motos); ///< Atualiza o mundo.
+            m.attMundo(caminhoes, carros, motos); /// Atualiza o mundo.
+
             ///
             /// Conta cada print no objetivo de evitar o excesso de prints,
             /// para que não seja uma run "infinita".
