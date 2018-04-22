@@ -51,7 +51,7 @@ public class Main {
             /// Pausa o programa durante um tempo determinado em milisegundos.
             ///
             try {
-                Thread.sleep(200);
+                Thread.sleep(500);
             } catch (Exception e) { e.printStackTrace(); }
         }
     }
