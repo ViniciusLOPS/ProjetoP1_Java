@@ -51,6 +51,7 @@ public class Mundo {
     private int attmapa[][];  ///< Mundo de grades para atualizações de posição.
     private int contVitimas; ///< Contador de vitimas em batidas.
     private int contCarga; ///< Contador de carga perdida em batidas.
+
     ///
     /// Construtor padrão de Mundo. Cria um mundo para atualizações, com sua forma inicial.
     ///

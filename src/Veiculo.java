@@ -9,6 +9,7 @@ public class Veiculo {
     protected boolean fabrica; ///< True ou false para saber se cria ou não um veiculo novo.
     protected int speed;  ///< Velocidade fixa do veiculo.
     protected int cor;  ///< Cor fixa de um veiculo.
+
     /// Construtor padrão.
     public Veiculo(){}
     /// Gerador de numeros randomicos da biblioteca random.

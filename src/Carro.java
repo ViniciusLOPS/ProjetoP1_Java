@@ -3,6 +3,7 @@
 ///
 public class Carro extends Veiculo {
     private int passageiros; ///< De 1 a 4 passageiros em um Carro.
+
     /// Construtor padrão. Chama a classe Mãe e chama o set de passageiros.
     ///
     public Carro(){

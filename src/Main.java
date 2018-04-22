@@ -10,6 +10,7 @@ public class Main {
         ArrayList <Caminhao> caminhoes = new ArrayList<>(); ///< Cria uma lista de caminhões da classe Caminhao.
         ArrayList <Carro> carros = new ArrayList<>(); ///< Cria uma lista de carros da classe Carro.
         ArrayList <Moto> motos = new ArrayList<>(); ///< Cria uma lista de motos da classe Moto.
+
         ///
         /// For que adiciona 10 novos veiculos de cada tipo para o teste do mundo de grades.
         ///
@@ -19,6 +20,7 @@ public class Main {
             motos.add(new Moto());
         }
         int contadorPrints = 0; ///< contador para limitar o numero de prints.
+
         ///
         /// While que permite o programa rodar até o momento em que apenas um tipo de veiculo sobrar ou os prints
         /// excederem o limite que impus.

@@ -3,6 +3,7 @@
 ///
 public class Caminhao extends Veiculo {
     private int carga; ///< De 1 a 14 toneladas de carga em um Caminhao.
+
     ///Construtor padrão. Chama a classe Mãe e chama o set de carga.
     ///
     public Caminhao(){

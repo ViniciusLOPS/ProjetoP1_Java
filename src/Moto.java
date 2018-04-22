@@ -3,6 +3,7 @@
 ///
 public class Moto extends Veiculo {
     private int passageiros;  ///< De 1 a 2 passageiros em uma Moto.
+
     /// Construtor padrão. Chama a classe Mãe e chama o set de passageiros.
     ///
     public Moto(){
